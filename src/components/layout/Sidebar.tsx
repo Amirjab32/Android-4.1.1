@@ -141,15 +141,15 @@ export default function Sidebar({ open, view, onViewChange, onClose, onOpenBacku
                 </button>
               </div>
             </div>
-            <nav className="flex-1 space-y-1 p-4 overflow-y-auto">
+            <nav className="flex-1 space-y-0.5 px-3 py-2.5 overflow-y-auto">
               {visibleNavItems.map(({ id, label, icon: Icon }, i) => (
                 <motion.button
                   key={id}
                   onClick={() => handleSelect(id)}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 * i + 0.1 }}
-                  className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-all"
+                  transition={{ delay: 0.03 * i + 0.05 }}
+                  className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2 text-[13px] font-medium transition-all cursor-pointer"
                   style={
                     view === id
                       ? { backgroundColor: "#6366f1", color: "#ffffff", boxShadow: "0 4px 14px rgba(99,102,241,0.25)" }
@@ -168,20 +168,20 @@ export default function Sidebar({ open, view, onViewChange, onClose, onOpenBacku
                     }
                   }}
                 >
-                  <Icon className="h-5 w-5 flex-shrink-0" />
+                  <Icon className="h-4 w-4 flex-shrink-0" />
                   <span>{label}</span>
                 </motion.button>
               ))}
             </nav>
-            <div className="p-4 space-y-3" style={{ borderTop: `1px solid ${cardBorder}` }}>
+            <div className="px-3 py-2.5 space-y-1.5" style={{ borderTop: `1px solid ${cardBorder}` }}>
               {/* Safe Mode Toggle */}
-              <div className="flex items-center justify-between rounded-xl p-3" style={{ border: `1px solid ${cardBorder}`, backgroundColor: "rgba(99,102,241,0.05)" }}>
-                <div className="flex items-center gap-2">
-                  {safeMode ? <ShieldCheck className="h-4 w-4 text-emerald-400" /> : <ShieldAlert className="h-4 w-4 text-rose-400" />}
-                  <span className="text-xs font-semibold" style={{ color: fg }}>حالت اطمینان (حذف امن)</span>
+              <div className="flex items-center justify-between rounded-lg px-2.5 py-1.5" style={{ border: `1px solid ${cardBorder}`, backgroundColor: "rgba(99,102,241,0.05)" }}>
+                <div className="flex items-center gap-1.5">
+                  {safeMode ? <ShieldCheck className="h-3.5 w-3.5 text-emerald-400 shrink-0" /> : <ShieldAlert className="h-3.5 w-3.5 text-rose-400 shrink-0" />}
+                  <span className="text-[11px] font-semibold" style={{ color: fg }}>حالت اطمینان (حذف امن)</span>
                 </div>
-                <button onClick={toggleSafeMode} className="relative inline-flex h-5 w-10 items-center rounded-full transition-colors cursor-pointer" style={{ backgroundColor: safeMode ? "#10b981" : "rgba(128,128,128,0.3)" }}>
-                  <span className="h-3.5 w-3.5 rounded-full bg-white transition-transform duration-200" style={{ transform: safeMode ? "translateX(-21px)" : "translateX(-4px)" }} />
+                <button onClick={toggleSafeMode} className="relative inline-flex h-4 w-8 items-center rounded-full transition-colors cursor-pointer shrink-0" style={{ backgroundColor: safeMode ? "#10b981" : "rgba(128,128,128,0.3)" }}>
+                  <span className="h-3 w-3 rounded-full bg-white transition-transform duration-200" style={{ transform: safeMode ? "translateX(-17px)" : "translateX(-3px)" }} />
                 </button>
               </div>
 
@@ -191,26 +191,26 @@ export default function Sidebar({ open, view, onViewChange, onClose, onOpenBacku
                   onOpenBackup();
                   onClose();
                 }} 
-                className="flex w-full items-center gap-2.5 rounded-xl px-3 py-2.5 text-xs font-semibold transition-all hover:bg-white/5 cursor-pointer border" 
+                className="flex w-full items-center gap-2 rounded-lg px-2.5 py-1.5 text-[11px] font-semibold transition-all hover:bg-white/5 cursor-pointer border" 
                 style={{ borderColor: cardBorder, color: fg }}
               >
-                <Database className="h-4 w-4 text-amber-500" />
+                <Database className="h-3.5 w-3.5 text-amber-500 shrink-0" />
                 <span className="flex-1 text-right">پشتیبان‌گیری و انتقال اطلاعات</span>
               </button>
 
               {!showConfirm ? (
                 <button
-                  className="flex w-full items-center gap-3 rounded-xl px-4 py-2 text-xs font-semibold transition-colors hover:bg-rose-500/10"
+                  className="flex w-full items-center gap-2 rounded-lg px-2.5 py-1.5 text-[11px] font-semibold transition-colors hover:bg-rose-500/10 cursor-pointer"
                   style={{ color: "#f87171" }}
                   onClick={() => setShowConfirm(true)}
                 >
-                  <LogOut className="h-4 w-4" />
+                  <LogOut className="h-3.5 w-3.5 shrink-0" />
                   <span>پاک کردن داده‌ها</span>
                 </button>
               ) : (
-                <div className="rounded-xl border border-rose-500/20 bg-rose-500/5 p-3 text-center space-y-3">
-                  <div className="flex items-center justify-center gap-1.5 text-xs font-bold text-rose-400">
-                    <AlertTriangle className="h-4 w-4 animate-pulse" />
+                <div className="rounded-lg border border-rose-500/20 bg-rose-500/5 p-2.5 text-center space-y-2">
+                  <div className="flex items-center justify-center gap-1.5 text-[11px] font-bold text-rose-400">
+                    <AlertTriangle className="h-3.5 w-3.5 animate-pulse" />
                     <span>تایید نهایی پاک‌سازی کامل اطلاعات</span>
                   </div>
                   
@@ -236,7 +236,7 @@ export default function Sidebar({ open, view, onViewChange, onClose, onOpenBacku
                     </div>
                   </div>
 
-                  <div className="flex gap-2 pt-1">
+                  <div className="flex gap-2 pt-0.5">
                     <button
                       onClick={() => {
                         if (deleteCountdown <= 0) {
@@ -244,7 +244,7 @@ export default function Sidebar({ open, view, onViewChange, onClose, onOpenBacku
                         }
                       }}
                       disabled={deleteCountdown > 0}
-                      className={`flex-1 rounded-lg py-2 text-[11px] font-bold transition-all ${
+                      className={`flex-1 rounded-lg py-1.5 text-[11px] font-bold transition-all ${
                         deleteCountdown > 0
                           ? "bg-white/5 text-gray-500 cursor-not-allowed border border-white/5"
                           : "bg-rose-500 hover:bg-rose-600 text-white cursor-pointer shadow-lg shadow-rose-500/20"
@@ -254,7 +254,7 @@ export default function Sidebar({ open, view, onViewChange, onClose, onOpenBacku
                     </button>
                     <button
                       onClick={() => setShowConfirm(false)}
-                      className="flex-1 rounded-lg bg-white/10 py-2 text-[11px] font-semibold transition-colors hover:bg-white/20"
+                      className="flex-1 rounded-lg bg-white/10 py-1.5 text-[11px] font-semibold transition-colors hover:bg-white/20"
                       style={{ color: fg }}
                     >
                       انصراف
@@ -263,8 +263,8 @@ export default function Sidebar({ open, view, onViewChange, onClose, onOpenBacku
                 </div>
               )}
 
-              <div className="pt-1 text-center text-[11px] select-none" style={{ color: fgMuted }}>
-                <span>نسخه ۴.۰.۸</span>
+              <div className="pt-0.5 text-center text-[10px] select-none" style={{ color: fgMuted }}>
+                <span>نسخه ۴.۱.۱</span>
               </div>
             </div>
           </motion.div>

@@ -580,7 +580,7 @@ function AppContent() {
       <footer className={`mt-auto text-center text-xs select-none shrink-0 ${isFixedViewportView ? "py-2" : "py-4"}`} style={{ color: fgMuted }}>
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border text-[11px]" style={{ borderColor: cardBorder }}>
           <span>نسخه</span>
-          <span className="font-semibold">۴.۰.۸</span>
+          <span className="font-semibold">۴.۱.۱</span>
         </div>
       </footer>
 
